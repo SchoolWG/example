@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 300px;
+            border: 3px solid #008011;
+        }
+        ul li a {
+            display: block;
+            padding: 15px;
+            border-bottom: 1px solid #008011;
+            color: rgb(0, 87, 9);
+            text-align: center;
+            text-decoration: none;
+            background-color: #EEE;
+        }
+        ul li{
+            position: relative;
+        }
+        ul li:hover:before {
+            content: attr(data-tooltip);
+            width: 100%;
+            line-height: 2em;
+            padding: 15px;
+            border: 1px solid #00000084;
+            background-color: #FAFAFA;
+            position: absolute;
+            top: 0;
+            left: 105%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li data-tooltip="Znajdziesz tutaj zagadnienia dotyczące...">
+            <a href="#">Strona - 1</a>
+        </li>
+
+        <li data-tooltip="Zobaczysz tutaj ciekawe przykłady, które dotyczą...">
+            <a href="#">Strona - 2</a>
+        </li>
+
+        <li data-tooltip="Poznasz tutaj ciekawe historie, które...">
+            <a href="#">Strona - 3</a>
+        </li>
+
+        <li data-tooltip="Zobaczysz tutaj zdjęcia ciekawych...">
+            <a href="#">Strona - 4</a>
+        </li>
+    </ul>
+
+</body>
+
+</html>
