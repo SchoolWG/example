@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            /* margin: 0;
+            padding: 0; */
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .loader {
+            margin: 10px;
+            width: 200px;
+            height: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: linear-gradient(orange 0 0) 0/0 no-repeat lightblue;
+            /*color, position, repeat, tło całości */
+            background-size: 0;
+animation: pre 2s infinite steps(8);
+        }
+
+        @keyframes pre {
+            to {
+                background-size: 100%;
+            }
+        }
+
+        .loader2 {
+            margin: 20px;
+            width: 100px;
+            height: 100px;
+            background: conic-gradient(transparent, rgb(0, 99, 0), rgb(0, 189, 0), rgb(0, 255, 0));
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: load 1s linear infinite;
+        }
+
+        .loader2::before {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            width: 70%;
+            height: 70%;
+            background: black;
+        }
+
+        @keyframes load {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loader3 {
+            margin: 20px;
+            width: 300px;
+            height: 30px;
+            border-radius: 20px;
+            border: 2px solid whitesmoke;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loader3::before {
+            content: '';
+            position: absolute;
+            width: 25%;
+            margin: 2px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #00d9ff;
+            border-radius: inherit;
+            animation: loader3 2s infinite ease;
+        }
+
+        @keyframes loader3 {
+            50% {
+                left: 74%;
+            }
+        }
+
+        .kulki {
+            width: 400px;
+            display: flex;
+            justify-content: space-between;
+            margin: 50px;
+        }
+
+        .kulka {
+            width: 50px;
+            height: 50px;
+            background: rgb(0, 217, 255);
+            border-radius: 50%;
+            margin: 5px;
+            transform: scale(0);
+            box-shadow: 0 0 20px #00d9ff;
+            animation: kulki 2s infinite;
+            /* animation-fill-mode: forwards; */
+        }
+
+        .kulka:hover {
+            animation-play-state: paused;
+        }
+
+        .kulka:nth-child(5) {
+            animation-delay: 0.8s;
+        }
+
+        .kulka:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .kulka:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .kulka:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        @keyframes kulki {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(0);
+            }
+        }
+
+        .kolo {
+            width: 200px;
+            height: 200px;
+            border: 20px solid;
+            box-sizing: border-box;
+            border-radius: 50%;
+            border-top-color: aqua;
+            border-bottom-color: #00d9ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: kolo 2s linear infinite;
+        }
+
+        .kolo_in {
+            width: 80%;
+            height: 80%;
+            border: 10px solid;
+
+            border-radius: 50%;
+            border-top-color: aqua;
+            border-bottom-color: #00d9ff;
+            animation: kolo 1s linear infinite;
+        }
+        @keyframes kolo {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .clock {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border: 10px solid white;
+            box-sizing: border-box;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .clock::before {
+            content: '';
+            display: block;
+            width: 2px;
+            height: 45%;
+            background-color: aliceblue;
+            position: absolute;
+            bottom: 50%;
+            transform-origin: bottom center;
+            /* punkt transformacji */
+            animation: clock 2s linear infinite;
+        }
+
+        @keyframes clock {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="loader"></div> 
+   <div class="loader2"></div>
+     <div class="loader3"></div>
+    <div class="kulki">
+        <div class="kulka"></div>
+        <div class="kulka"></div>
+        <div class="kulka"></div>
+        <div class="kulka"></div>
+        <div class="kulka"></div> 
+    </div>
+    <div class="kolo">
+        <div class="kolo_in"></div>
+    </div>
+    <div class="clock"></div> 
+
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .paczek {
+            width: 50px;
+            height: 50px;
+            border: 90px solid burlywood;
+            border-radius: 90%;
+            transition: transform 1s linear;
+            position: relative;
+            animation: paczek 5s linear infinite;
+        }
+
+        .paczek::before {
+            content: '';
+            position: absolute;
+            height: 60px;
+            width: 60px;
+            border: 70px solid rgb(102, 84, 60);
+            border-radius: 50%;
+            top: -70px;
+            left: -75px;
+        }
+
+        .paczek::after {
+            content: '';
+            position: absolute;
+            transform: rotate(30deg);
+            width: 2px;
+            height: 10px;
+            border: 1px solid rgb(214, 114, 198);
+            box-sizing: border-box;
+            box-shadow:
+                20px -50px pink,
+                90px 70px pink,
+                100px -30px pink,
+                120px -30px pink,
+                -50px -30px pink,
+                -50px 30px pink,
+                -20px 50px pink;
+
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .paczek:hover {
+            /* transform: rotate(360deg); */
+            animation-play-state: paused;
+        }
+        .smiglo{
+            width: 40px;
+            height: 40px;
+            background: #ff6d00;
+            border-radius: 50%;
+            margin: 100px;
+            position: relative;
+           animation: smiglo 1s linear infinite;
+          
+        }
+        .smiglo::after, .smiglo::before{
+            content: "";
+            position: absolute;
+            background:grey;
+            width: 35px;
+            height: 80px;
+            border-radius: 50% 50% 50% 50% / 85% 85% 15% 15% ;
+            top:45px;
+            left:2px;
+        }
+        .smiglo::before{
+            transform: rotate(180deg);
+            top:-85px
+        }
+        @keyframes smiglo{
+            to{transform:rotate(360deg)}
+        }
+        @keyframes paczek{
+            to{transform:rotate(360deg)}
+        }
+ body{
+     background: rgb(153,0,51)  ;
+ }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="smiglo"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="smiglo"></div> 
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="smiglo"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="smiglo"></div>    
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="smiglo"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="paczek"></div>
+        <div class="smiglo"></div>
+    </main>
+</body>
+
+</html>

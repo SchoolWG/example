@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(185, 185, 185);
+        }
+
+        main {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slider {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            border-radius: 20px;
+            background-image: url("img/plaza.jpg");
+            background-size: cover;
+            background-position: center;
+            animation: slider 10s alternate infinite;
+        }
+
+        @keyframes slider {
+            0%{
+                background-image: url("img/plaza.jpg");
+            }
+            30% {
+                background-image: url("img/butterflies-1127666_1280.jpg");
+                
+            }
+            60% {
+                background-image: url("img/uxiq4.c775cc.l.jpg");
+            }
+
+            100% {
+                background-image: url("img/Default_mountain_3.jpg");
+            }
+
+        }
+
+        .slider::after{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("img/plaza.jpg");
+            background-size: cover;
+            transform: perspective(400px)  translateX(-120px) scale(.6) rotatey(45deg);
+            filter: blur(3px);
+            opacity: .6;
+            z-index: -1;
+            border-radius: 20px;
+            animation: slider 10s alternate infinite;
+        }
+        .slider::before{
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url("img/Default_mountain_3.jpg");
+            background-size: cover;
+            transform: perspective(400px)  translateX(120px) scale(.6) rotatey(-45deg);
+            filter: blur(3px);
+            z-index: -1;
+            opacity: .6;
+            border-radius: 20px;
+            animation: slider 10s alternate infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="slider"></div>
+    </main>
+
+    <p>
+        W HTML'u znajduje się tylko zapis:
+        <pre>
+            &lt div class="slider"&gt &lt/div&gt
+        </pre>
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
+
+        section {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        #menu {
+            list-style: none;
+            /* width: 200px; */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0;
+        }
+
+        #menu li {
+            margin: 8px 10px;
+            position: relative;
+            background-color: #2b2b2b;
+            border-radius: 2px 10px 10px 2px;
+            overflow: hidden;
+            width: 120px;
+        }
+
+        #menu li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #009B9B;
+            font-weight: 700;
+            font-size: 20px;
+            position: relative;
+        }
+
+        #menu li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            transition: .5s all ease-in-out;
+        }
+
+        #menu li:nth-child(even)::before {
+            background-color: rgb(2, 222, 222);
+        }
+
+        #menu li:nth-child(odd)::before {
+            background-color: rgb(0, 155, 155);
+        }
+
+        #menu li:hover::before {
+            border-radius: 0 10px 10px 0;
+            width: 100%;
+        }
+
+        #menu li a:hover {
+            color: #2b2b2b;
+        }
+
+        header {
+            background-image: url(img/backbrown.jpg);
+            background-position: center;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            padding: 10px;
+            min-width: 1000px;
+        }
+
+        body {
+            height: 90vh;
+            margin: auto;
+        }
+
+        h1 {
+            font-family: "Sedgwick Ave Display", cursive;
+            font-weight: 400;
+            font-style: normal;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            color: #009B9B;
+        }
+
+        .nag {
+            width: 50%;
+            /* margin-left: 12%; */
+            margin: auto;
+            box-shadow: 2px 2px 5px #415B5D;
+            backdrop-filter: brightness(40%);
+        }
+
+        nav {
+            width: 70%;
+            min-width: 600px;
+            margin: 150px auto 100px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nag">
+            <h1><q> Każdy ma do wypełnienia swoją osobistą historię, która jest powodem jego pojawienia się na tym
+                    świecie.</q><br> Moje portfolio</h1>
+        </div>
+        <nav>
+            <section>
+                <ul id="menu">
+                    <li><a href="preloader.html">Preloader</a></li>
+                    <li><a href="paczek.html">Pączki</a></li>
+                    <li><a href="slider.html">Slider</a></li>
+                    <li><a href="anim_sprawdzian.html">Bateria</a></li>
+                    <li><a href="orbita.html">Orbita</a></li>
+                    <!-- <li><a href="animacja_hamburger_kostka.html">Kostka</a></li> -->
+                </ul>
+            </section>
+        </nav>
+    </header>
+</body>
+
+</html>

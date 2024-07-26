@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .container {
+            height: 400px;
+            width: 400px;
+            margin: auto;
+            position: relative;
+        }
+
+        .sun {
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            border-radius: 50%;
+            box-shadow: 0 0 30px white;
+            position: absolute;
+            top: 150px;
+            left: 150px;
+        }
+
+        .orbit {
+            position: relative;
+            border: solid;
+            border-radius: 50%;
+            border-color: white transparent;
+            border-width: 1px 1px 0 0;
+        }
+
+        .globe.earth {
+            height: 30px;
+            width: 30px;
+            background-color: aqua;
+            box-shadow: 0 0 30px rgb(200, 255, 0);
+            top: 28px;
+            right: 28px;
+
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .globe.moon {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            right: 2px;
+            top: 8px;
+
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .orbit.earth {
+            position: relative;
+            height: 300px;
+            width: 300px;
+            left: 50px;
+            top: 50px;
+            animation: earth 36.5s linear infinite;
+        }
+
+        .orbit.moon {
+            animation: earth 2.7s linear infinite;
+            height: 80px;
+            width: 80px;
+            left: -25px;
+            top: -25px;
+        }
+
+        @keyframes earth {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .box {
+            margin: 50px auto;
+            color: aliceblue;
+            width: 400px;
+            border: 1px solid;
+            padding: 20px;
+            overflow: auto;
+            resize: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sun"></div>
+        <div class="orbit earth">
+            <div class="globe earth">
+                <div class="orbit moon">
+                    <div class="globe moon"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="box">Obieg ziemi dookoła Słońca trwa 365 dni 5 godzin 48 minut i 46 sekund, czyli rok astronomiczny. W
+        czasie tego ruchu oś Ziemi jest nachylona do płaszczyzny orbity stale pod kątem 66°33'. Tym samym płaszczyzna
+        równika jest nachylona do płaszczyzny orbity pod kątem 23°27'.
+        <p>Orbita Księżyca – trajektoria, po której Księżyc porusza się wokół Ziemi; przebycie jej w całości zajmuje mu
+            około 27,3 dnia. Księżyc i Ziemia krążą wokół barycentrum – wspólnego środka masy, leżącego w średniej
+            odległości ok. 4675 km od środka Ziemi (w mniej więcej ¾ jej promienia).</p>
+        <p>Animacja przedstawie rzeczywisty czas okrążeń Ziemi i Księżyca 864 000 razy przyśpieszonym</p>
+
+    </div>
+</body>
+
+</html>
+
+<svg width="220" height="183" viewBox="0 0 220 183" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.2047 176L110 13.668L206.795 176H13.2047Z" fill="#FF0000" stroke="black" stroke-width="14" />
+</svg>
