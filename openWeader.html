@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url("images/swiat2.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+
+        main {
+            width: 90vw;
+            height: 95vh;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .all {
+            width: 50%;
+            height: 50%;
+            backdrop-filter: blur(2px);
+            text-align: end;
+            color: white;
+            box-shadow: 2px 2px 5px rgb(88, 88, 88), -2px -2px 5px rgb(47, 47, 47);
+        }
+
+        input[name='city'] {
+            display: block;
+            margin: 20px auto;
+            box-sizing: border-box;
+            width: 70%;
+            padding: 10px;
+            border-radius: 15px;
+            border: none;
+            opacity: .8;
+            font-size: larger;
+        }
+
+        button {
+            border: none;
+            background: transparent;
+            font-size: 20px;
+            font-weight: 900;
+            color: #201905;
+            -webkit-text-stroke: .5px #6a7a22;
+            letter-spacing: 2px;
+            margin-right: 20px;
+            position: relative;
+        }
+
+        button::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #302507;
+            border-radius: 5px;
+            transform: scaleX(0);
+            transition: all 1s ease;
+        }
+
+        button:hover::before {
+            transform: scaleX(1);
+        }
+
+        .result {
+            /* background-color: rgba(0, 0, 0, 0.7);
+            border: 1px solid; */
+            margin: 30px;
+            text-align: center;
+        }
+        table{
+            width: 100%;
+            background-color: #201905a5;
+            border-collapse: collapse;
+            empty-cells: show;
+            visibility: hidden;
+        }
+        th{
+            border-top:1px solid;
+            border-bottom: 1px solid;
+            padding: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="all">
+            <input type="text" name="city" id="" placeholder="Wpisz miasto">
+            <button>Sprawdź pogodę</button>
+            <div class="result">
+
+                <table>
+                    <tr>
+                        <th>Pogoda</th>
+                        <th>Temperatura</th>
+                        <th>Ciśnienie</th>
+                        <th>Wilgotność</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+
+
+
+
+                <script>
+                    let apiKey = "&appid=3bc059395ca9a9438ff9ac8d482e0821";
+                    let endpoint = "https://api.openweathermap.org/data/2.5/weather?q=";
+                    let unitsLang = "&units=metric&lang=pl"; //jednostki w st celcjusza i język zwracanych danych
+
+                    let city = document.querySelector("input[name='city']");
+                    let btn = document.querySelector("button");
+                    const result = document.querySelector(".result");
+                    const tabTR = document.querySelectorAll("tr:nth-of-type(2) td");
+
+
+                    async function getWeader() {
+                        const cityFound = city.value;
+                        if(city.value=="") console.log("Wpisz miasto");
+                        else{
+
+                        let uriApi = endpoint + cityFound + unitsLang + apiKey;
+
+                        try {
+                            const uri = await fetch(uriApi);
+                            const res = await uri.json();
+                            
+                            console.log(res);
+                            document.querySelector("table").style.visibility="visible";
+                            tabTR[0].innerHTML = "<img src='https://openweathermap.org/img/wn/" + res.weather[0].icon + ".png'><br>" + res.weather[0].description+"<br>"+res.clouds.all+"%";
+                            tabTR[1].innerHTML =Math.floor(res.main.temp)+" &degC<br><br>(min: "+Math.floor(res.main.temp_min)+" &degC<br>max: "+Math.floor(res.main.temp_max)+" &degC)";
+                            tabTR[2].innerHTML =res.main.pressure+" hPa";
+                            tabTR[3].innerHTML =res.main.humidity+" g/m<sup>3</sup>";
+
+                        }
+                        catch (err) { console.log(err); }
+                    }
+
+
+                        // https://openweathermap.org/weather-conditions   kody rysunków pogodowych
+                    }
+                    btn.addEventListener('click', getWeader);
+                </script>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
