@@ -76,19 +76,20 @@
             margin: 30px;
             text-align: center;
         }
-        table{
+
+        table {
             width: 100%;
             background-color: #201905a5;
             border-collapse: collapse;
             empty-cells: show;
             visibility: hidden;
         }
-        th{
-            border-top:1px solid;
+
+        th {
+            border-top: 1px solid;
             border-bottom: 1px solid;
             padding: 5px;
         }
-
     </style>
 </head>
 
@@ -98,7 +99,7 @@
             <input type="text" name="city" id="" placeholder="Wpisz miasto">
             <button>Sprawdź pogodę</button>
             <div class="result">
-
+                <span></span>
                 <table>
                     <tr>
                         <th>Pogoda</th>
@@ -130,25 +131,33 @@
 
                     async function getWeader() {
                         const cityFound = city.value;
-                        if(city.value=="") console.log("Wpisz miasto");
-                        else{
+                        if (city.value == "") console.log("Wpisz miasto");
+                        else {
 
-                        let uriApi = endpoint + cityFound + unitsLang + apiKey;
+                            let uriApi = endpoint + cityFound + unitsLang + apiKey;
 
-                        try {
-                            const uri = await fetch(uriApi);
-                            const res = await uri.json();
-                            
-                            console.log(res);
-                            document.querySelector("table").style.visibility="visible";
-                            tabTR[0].innerHTML = "<img src='https://openweathermap.org/img/wn/" + res.weather[0].icon + ".png'><br>" + res.weather[0].description+"<br>"+res.clouds.all+"%";
-                            tabTR[1].innerHTML =Math.floor(res.main.temp)+" &degC<br><br>(min: "+Math.floor(res.main.temp_min)+" &degC<br>max: "+Math.floor(res.main.temp_max)+" &degC)";
-                            tabTR[2].innerHTML =res.main.pressure+" hPa";
-                            tabTR[3].innerHTML =res.main.humidity+" g/m<sup>3</sup>";
+                            try {
+                                const uri = await fetch(uriApi);
+                                const res = await uri.json();
 
+                                console.log(res);
+                                if (res.cod == "404") {
+                                    document.querySelector(".result span").innerHTML = res.message;
+                                    document.querySelector("table").style.visibility = "hidden";
+                                }
+                                else {
+                                    document.querySelector(".result span").innerHTML = "";
+
+                                    document.querySelector("table").style.visibility = "visible";
+                                    tabTR[0].innerHTML = "<img src='https://openweathermap.org/img/wn/" + res.weather[0].icon + ".png'><br>" + res.weather[0].description + "<br>" + res.clouds.all + "%";
+                                    tabTR[1].innerHTML = Math.floor(res.main.temp) + " &degC<br><br>(min: " + Math.floor(res.main.temp_min) + " &degC<br>max: " + Math.floor(res.main.temp_max) + " &degC)";
+                                    tabTR[2].innerHTML = res.main.pressure + " hPa";
+                                    tabTR[3].innerHTML = res.main.humidity + " g/m<sup>3</sup>";
+                                }
+
+                            }
+                            catch (err) { console.log(err); }
                         }
-                        catch (err) { console.log(err); }
-                    }
 
 
                         // https://openweathermap.org/weather-conditions   kody rysunków pogodowych
