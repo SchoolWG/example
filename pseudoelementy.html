@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url(img/coffe.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top left;
+        }
+
+        section {
+            width: 50%;
+            min-width: 700px;
+            margin: auto;
+            background-color: #f2e3d595;
+            margin-top: 10vh;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px;
+            position: relative;
+        }
+
+        table {
+            width: 85%;
+            margin: auto;
+            font-weight: bold;
+        }
+
+        td:nth-child(2) {
+            width: 50%;
+            padding: 10px 15px;
+            /* border: 1px solid; */
+            text-align: center;
+        }
+
+        table div {
+            display: inline-block;
+            width: 14%;
+            height: 30px;
+            background-color: #59473C;
+            margin: auto;
+            box-sizing: border-box;
+        }
+
+        tr:nth-child(1) div:first-child {
+            background-color: #F2E3D5;
+            border: 1px solid #59473C;
+        }
+
+        tr:nth-child(2) div:last-child {
+            background-color: #F2E3D5;
+            border: 1px solid #59473C;
+        }
+
+        tr:nth-child(3) div:nth-child(2) {
+            background-color: #F2E3D5;
+            border: 1px solid #59473C;
+        }
+
+        tr:nth-child(4) div:nth-last-child(2) {
+            background-color: #F2E3D5;
+            border: 1px solid #59473C;
+        }
+
+        tr:nth-child(5) div:nth-child(even) {
+            background-color: #F2E3D5;
+            border: 1px solid #59473C;
+        }
+
+        tr:nth-child(6) div:nth-child(odd) {
+            background-color: #F2E3D5;
+            border: 1px solid #59473C;
+        }
+
+        tr:nth-child(7) div:nth-child(3n) {
+            background-color: #F2E3D5;
+            border: 1px solid #59473C;
+        }
+
+        tr:nth-child(8) div:nth-child(n+3) {
+            background-color: #F2E3D5;
+            border: 1px solid #59473C;
+        }
+
+        caption {
+            padding: 10px;
+        }
+
+        button {
+            margin: 25px 0;
+            margin-left: 80%;
+
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #F2E3D5;
+            background-color: #59473C;
+            border: 2px solid #F2E3D5;
+            border-radius: 10px;
+            box-shadow: 5px 5px 0 #F2E3D5;
+        }
+        button:hover{
+           background-color: #F2E3D5;
+            color: #59473C;
+            box-shadow: 5px 5px 0 #59473C;
+            border: 2px solid #59473C;
+        }
+        button:active{
+           background-color: #59473C;
+            color: #F2E3D5;
+            box-shadow: none;
+            border: 2px solid #59473C;
+            transform: translateY(4px);
+        }
+        div{
+            display: none;
+            padding: 10px 20px;
+            background-color: #f2e3d5af;
+            margin: 0 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <table>
+            <caption>Child Selectors</caption>
+            <tr>
+                <td>:first-child</td>
+                <td>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>:last-child</td>
+                <td>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>:nth-child(2)</td>
+                <td>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>:nth-last-child(2) </td>
+                <td>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>:nth-child(even) </td>
+                <td>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>:nth-child(odd) </td>
+                <td>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>:nth-child(3n) </td>
+                <td>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>:nth-child(n+3) </td>
+                <td>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </td>
+            </tr>
+        </table>
+        <div class="note">
+            Pseudoklasa selektora potomka odwołuje się do każdego elementu HTML, którego cechy w danym momencie spełniają zasadę pseudoklasy, to znaczy gdy w danym momencie element HTML wskazany po lewej stronie dwukropka jest odpowiednim elementem dzieckiem swojego elementu rodzica.
+        </div>
+        <button class="comic-btn">Notatka</button>
+    </section>
+
+    <script>
+        const btn = document.querySelector("button");
+
+        btn.addEventListener('click',()=>{
+const div = document.querySelector(".note");
+div.style.display="block";
+        })
+    </script>
+</body>
+
+</html>
