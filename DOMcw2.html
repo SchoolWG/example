@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: url("img/candy.png") rgb(226, 255, 182);
+            
+        }
+        .out {
+            position: relative;
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            margin: 55px auto;
+            padding:20px 0;
+            border-radius: 10px;
+            background-color: rgb(153, 85, 85);
+            color: white;
+            box-shadow: 0 0 5px black, 0 0 10px rgba(162, 255, 0, 0.528);
+        }
+        h1{
+            color: rgb(226, 255, 182);
+            font-family: Arial, Helvetica, sans-serif;
+            font-variant: small-caps;
+            letter-spacing: 2px;
+        }
+        input {
+            width: 150px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            line-height: 20px;
+            padding: 2px;
+            border: none;
+           
+        }
+
+        button {
+            position: absolute;
+            width: 100px;
+            padding: 5px;
+            margin: 20px 0;
+            left: 200px;
+            border-radius: 20px 20px;
+            background: transparent;
+            border: 2px solid rgb(226, 255, 182);
+            color: white;
+        }
+button:active{
+    background-color: rgb(226, 255, 182);
+    color: black;
+}
+        .form {
+            width: 150px;
+            text-align: start;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="out">
+        <h1>Wypełnij dane</h1>
+        <div class="form">
+            <p>Twoje imię:</p>
+            <input type="text" name="imie" id="i" placeholder="Podaj imię">
+            <p>Twoje nazwisko:</p>
+            <input type="text" name="nazwisko" id="n" placeholder="podaj nazwisko">
+            <br>
+            <button>Weryfikacja</button>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.querySelector("button");
+        let imie = document.querySelector("#i");
+        let nazwisko = document.querySelector("#n");
+        console.log(imie);
+        let flag = true;
+        btn.addEventListener('mouseover', () => {
+            if (flag) {
+                btn.style.left = "325px";
+                flag = false;
+            } else {
+                btn.style.left = "100px";
+                flag = true
+            }
+            console.log(flag);
+            if (imie.value == "" || nazwisko.value == "") {
+                if (imie.value == "") imie.style.border = "3px solid  rgb(250, 100, 28)";
+                else imie.style.border = "3px solid rgb(226, 255, 182)";
+                if (nazwisko.value == "") nazwisko.style.border = "3px solid rgb(250, 100, 28)";
+                else nazwisko.style.border = "3px solid rgb(226, 255, 182)";
+            } else {
+                if (imie.value != "") imie.style.border = "3px solid rgb(226, 255, 182)";
+                if (nazwisko.value != "") nazwisko.style.border = "3px solid rgb(226, 255, 182)";
+                btn.style.left = "200px";
+            }
+        })
+    </script>
+</body>
+
+</html>
