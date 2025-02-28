@@ -25,8 +25,8 @@ const addDo = () => { //dodawanie nowego elementu
                         <div class="dot"></div>${newToDo}
                     </div>
                     <div class="img">
-                        <img src="images/edit.png" alt="" class="edit">
-                        <img src="images/delete.png" alt="" class="delete">
+                        <img src="img/edit.png" alt="" class="edit">
+                        <img src="img/delete.png" alt="" class="delete">
                     </div>`;
         li.addEventListener('click', turnOff);
         ul.append(li);
